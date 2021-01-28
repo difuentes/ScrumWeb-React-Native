@@ -1,21 +1,52 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+//librerias de react-native
+import { StyleSheet, Text, View ,Button,Alert} from 'react-native';
+
+import 'react-native-gesture-handler';
+//librerias navegacion
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+
+//
+const Stack = createStackNavigator();
+//importar vistas
+import Login from'./views/login';
+import CrearCuenta from'./views/CrearCuenta';
+//styles
+import globalStyles from'./styles/global';
+
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+      <NavigationContainer>
+          <Stack.Navigator initialRouteName="Login">
+            <Stack.Screen
+              name="Login"
+              component={Login}
+              options={{
+                title:"iniciar Seccion",
+                headerShown : false 
+              }}
+            /> 
+
+            <Stack.Screen
+              name="CrearCuenta"
+              component={CrearCuenta}
+              options={{
+                title:"Crear Cuenta"
+               
+              }}
+            /> 
+
+            
+          </Stack.Navigator>
+      </NavigationContainer>
+
+    </>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+  
 });
