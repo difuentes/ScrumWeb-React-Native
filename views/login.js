@@ -1,13 +1,19 @@
 import React from 'react';
 import {View} from 'react-native';
 import {Container,Button,Text,H1,Input,Form ,Item,Toast} from 'native-base'
-//styles
+import {useNavigation} from '@react-navigation/native'
 
+//styles
 import globalStyles from '../styles/global';
 
 
 
 const Login = () => {
+
+    //React Navigation
+    const navegation = useNavigation(); 
+
+    //View
     return ( 
         <Container style={globalStyles.contenedorLogin}> 
             <View style={globalStyles.contenido}>
@@ -31,12 +37,25 @@ const Login = () => {
 
                 <Button
                 style={globalStyles.botonInicioSecion} 
-                 
                  block
                 >
                     <Text style={globalStyles.textbotonInicioSecion}>Iniciar Sesión</Text>
                 </Button>
-                <Text style={globalStyles.btnTexto}>Crear Cuenta</Text>
+
+                <Button
+                    style={globalStyles.botonCrearCuenta} 
+                    block
+                    onPress={()=>navegation.navigate("CrearCuenta")}
+                >
+                    <Text 
+                        style={globalStyles.btnTexto}
+                       
+                    >
+                        Crear Cuenta
+                    </Text>
+                </Button>   
+
+              
             </View>
         </Container>
      );

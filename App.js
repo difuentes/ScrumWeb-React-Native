@@ -34,7 +34,14 @@ export default function App() {
               name="CrearCuenta"
               component={CrearCuenta}
               options={{
-                title:"Crear Cuenta"
+                title:"Crear Cuenta",
+                headerStyle:{
+                  backgroundColor:'#45B69C',
+                },
+                headerTintColor:'#fff',
+                headerTitleStyle:{
+                  fontWeigth:'bold'
+                }
                
               }}
             /> 
